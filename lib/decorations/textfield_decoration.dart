@@ -2,6 +2,7 @@ import 'package:desafio_tres/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 AppColor color = AppColor();
+bool _showPassword = false;
 
 class TextFieldDecoration {
   final InputDecoration nameDecoration = InputDecoration(
@@ -44,7 +45,7 @@ class TextFieldDecoration {
         print("Toquei");
       },
       child: Icon(
-        Icons.remove_red_eye_sharp,
+        _showPassword == false ? Icons.visibility_off_outlined : Icons.visibility_outlined,
         color: color.primaryColor,
       ),
     ),

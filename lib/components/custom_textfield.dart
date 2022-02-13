@@ -1,43 +1,50 @@
-import 'package:desafio_tres/decorations/textfield_decoration.dart';
 import 'package:flutter/material.dart';
 
-enum Field { name, email, pass, cpf, rg, phone }
+import '../constants/colors.dart';
 
 class CustomTextField extends StatelessWidget {
-  final Field field;
+  final TextInputType keyboardType;
+  final bool obscureText;
+  final String? labelText;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
 
-  const CustomTextField({Key? key, required this.field}) : super(key: key);
+  final String? Function(String?)? validator;
+
+  const CustomTextField({
+    Key? key,
+    required this.keyboardType,
+    this.obscureText = false,
+    this.validator,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.labelText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    TextFieldDecoration fieldDecoration = TextFieldDecoration();
+    AppColor colors = AppColor();
 
-    late InputDecoration decoration;
-
-    switch (field) {
-      case Field.name:
-        decoration = fieldDecoration.nameDecoration;
-        break;
-      case Field.email:
-        decoration = fieldDecoration.emailDecoration;
-        break;
-      case Field.pass:
-        decoration = fieldDecoration.passDecoration;
-        break;
-      case Field.cpf:
-        decoration = fieldDecoration.cpfDecoration;
-        break;
-      case Field.rg:
-        decoration = fieldDecoration.rgDecoration;
-        break;
-      case Field.phone:
-        decoration = fieldDecoration.phoneDecoration;
-        break;
-      default:
-    }
-
-    return TextFormField(
-      decoration: decoration,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 16),
+      child: TextFormField(
+        keyboardType: keyboardType,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          labelText: labelText,
+          prefixIcon: prefixIcon,
+          prefixIconColor: colors.primaryColor,
+          suffixIcon: suffixIcon,
+          suffixIconColor: colors.primaryColor,
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: colors.primaryColor),
+              borderRadius: BorderRadius.circular(16)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: colors.primaryColor),
+              borderRadius: BorderRadius.circular(16)),
+        ),
+        validator: validator,
+      ),
     );
   }
 }
