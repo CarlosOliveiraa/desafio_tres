@@ -1,3 +1,4 @@
+import 'package:desafio_tres/components/confirm_button.dart';
 import 'package:desafio_tres/components/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -28,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text("Full name"),
+              const Text("Full name"),
               //FULL NAME FIELD...
               CustomTextField(
                 keyboardType: TextInputType.name,
@@ -39,7 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               //E-MAIL FIELD...
-              Text("E-mail"),
+              const Text("E-mail"),
               CustomTextField(
                 keyboardType: TextInputType.emailAddress,
                 labelText: "E-mail",
@@ -49,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               //PASSWORD FIELD...
-              Text("Password"),
+              const Text("Password"),
               CustomTextField(
                 labelText: "Password",
                 prefixIcon:
@@ -92,6 +95,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 keyboardType: TextInputType.emailAddress,
                 obscureText: _showPassword == false ? true : false,
               ),
+              ConfirmButton(
+                width: size.width * 0.95,
+                height: size.height * 0.08,
+                text: "Sign Up",
+                onTap: () {},
+              )
             ],
           ),
         ),
