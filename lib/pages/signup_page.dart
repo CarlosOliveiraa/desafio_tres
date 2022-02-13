@@ -15,19 +15,21 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            CustomTextField(
-              field: Field.name,
-            ),
-            CustomTextField(
-              field: Field.email,
-            ),
-            CustomTextField(
-              field: Field.pass,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              CustomTextField(
+                field: Field.name,
+              ),
+              CustomTextField(
+                field: Field.email,
+              ),
+              CustomTextField(
+                field: Field.pass,
+              ),
+            ],
+          ),
         ),
       ),
     );
