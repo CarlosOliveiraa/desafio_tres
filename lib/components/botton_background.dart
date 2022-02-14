@@ -13,7 +13,7 @@ class BottonBackGround extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.all(18),
+      padding: const EdgeInsets.all(20),
       width: width,
       height: height,
       child: child,

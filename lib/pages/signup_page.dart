@@ -5,7 +5,8 @@ import 'package:desafio_tres/components/top_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
-import 'home_page.dart';
+
+import 'profile_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -40,8 +41,10 @@ class _SignUpPageState extends State<SignUpPage> {
         children: [
           TopWidget(
             width: size.width,
-            height: size.height * 0.18,
-            title: " Hello, \n Are you new here?",
+            height: size.height * 0.25,
+            icone: "assets/images/mao.png",
+            greeting: " Hello,",
+            title: " Are you new here?",
             subTitle: "  if you have an acount",
           ),
           BottonBackGround(
@@ -149,7 +152,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => const ProfilePage(),
                           ),
                         );
                       }
