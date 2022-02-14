@@ -5,7 +5,7 @@ import '../constants/colors.dart';
 class ProfileWidget extends StatelessWidget {
   final double size;
 
-  const ProfileWidget({Key? key, this.size = 84}) : super(key: key);
+  const ProfileWidget({Key? key, this.size = 83}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +31,11 @@ class ProfileWidget extends StatelessWidget {
         );
       }),
       decoration: BoxDecoration(
-        border: Border.all(width: 2.0),
         image: const DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage("assets/images/foto.jpg"),
         ),
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(35),
       ),
     );
   }

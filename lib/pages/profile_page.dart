@@ -1,5 +1,6 @@
 import 'package:desafio_tres/components/botton_background.dart';
 import 'package:desafio_tres/components/confirm_button.dart';
+import 'package:desafio_tres/components/custom_country_list.dart';
 import 'package:desafio_tres/components/custom_textfield.dart';
 import 'package:desafio_tres/masks/cpf_mask.dart';
 import 'package:desafio_tres/masks/phone_mask.dart';
@@ -46,11 +47,11 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             BottonBackGround(
               width: size.width,
-              height: size.height * 1.5,
+              height: size.height * 1.3,
               child: Column(
                 children: [
                   ProfileWidget(
-                    size: size.width * 0.27,
+                    size: size.width * 0.39,
                   ),
                   Form(
                       key: _formKey,
@@ -76,28 +77,32 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             keyboardType: TextInputType.name,
                           ),
-                          const Text(
-                            "Country",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                          const CustomContryList(),
+                          const SizedBox(
+                            height: 15,
                           ),
+                          // const Text(
+                          //   "Country",
+                          //   style: TextStyle(
+                          //       fontSize: 16, fontWeight: FontWeight.bold),
+                          // ),
                           //COUNTRY FIELD...
-                          CustomTextField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Select you country";
-                              }
-                            },
-                            // prefixIcon: Icon(
-                            //   Icons.person_outline_rounded,
-                            //   color: colors.primaryColor,
-                            // ),
-                            keyboardType: TextInputType.text,
-                            suffixIcon: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: colors.primaryColor,
-                            ),
-                          ),
+                          // CustomTextField(
+                          //   validator: (value) {
+                          //     if (value!.isEmpty) {
+                          //       return "Select you country";
+                          //     }
+                          //   },
+                          //   // prefixIcon: Icon(
+                          //   //   Icons.person_outline_rounded,
+                          //   //   color: colors.primaryColor,
+                          //   // ),
+                          //   keyboardType: TextInputType.text,
+                          //   suffixIcon: Icon(
+                          //     Icons.keyboard_arrow_down,
+                          //     color: colors.primaryColor,
+                          //   ),
+                          // ),
                           const Text(
                             "CPF",
                             style: TextStyle(
@@ -156,7 +161,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             keyboardType: TextInputType.number,
                           ),
                           SizedBox(
-                            height: size.height * 0.14,
+                            height: size.height * 0.05,
                           ),
                           ConfirmButton(
                             width: size.width * 0.95,
