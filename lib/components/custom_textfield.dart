@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../constants/colors.dart';
 
@@ -9,6 +10,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextEditingController? controller;
+  final List<TextInputFormatter>? mask;
 
   final String? Function(String?)? validator;
 
@@ -19,7 +21,7 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.prefixIcon,
     this.suffixIcon,
-    this.labelText, this.controller,
+    this.labelText, this.controller, this.mask,
   }) : super(key: key);
 
   @override
@@ -29,6 +31,7 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: TextFormField(
+        inputFormatters: mask,
         controller: controller,
         keyboardType: keyboardType,
         obscureText: obscureText,

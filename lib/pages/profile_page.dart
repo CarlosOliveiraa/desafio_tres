@@ -1,6 +1,9 @@
 import 'package:desafio_tres/components/botton_background.dart';
 import 'package:desafio_tres/components/confirm_button.dart';
 import 'package:desafio_tres/components/custom_textfield.dart';
+import 'package:desafio_tres/masks/cpf_mask.dart';
+import 'package:desafio_tres/masks/phone_mask.dart';
+import 'package:desafio_tres/masks/rg_mask.dart';
 import 'package:flutter/material.dart';
 
 import '../components/profile_widget.dart';
@@ -102,8 +105,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           //CPF FIELD...
                           CustomTextField(
+                            mask: [CpfMask()],
                             validator: (value) {
-                              if (value!.isEmpty || value.length < 11) {
+                              if (value!.isEmpty || value.length < 14) {
                                 return "Invalid CPF";
                               }
                             },
@@ -120,8 +124,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           //RG FIELD...
                           CustomTextField(
+                            mask: [RGMask()],
                             validator: (value) {
-                              if (value!.isEmpty || value.length < 8) {
+                              if (value!.isEmpty || value.length < 10) {
                                 return "Invalid RG";
                               }
                             },
@@ -138,8 +143,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           //PHONE NUMBER FIELD...
                           CustomTextField(
+                            mask: [PhoneMask()],
                             validator: (value) {
-                              if (value!.isEmpty || value.length < 11) {
+                              if (value!.isEmpty || value.length < 14) {
                                 return "Invalid number phone";
                               }
                             },
