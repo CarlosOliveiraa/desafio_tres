@@ -28,6 +28,10 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: const Color(0xffFAFAFA),
       appBar: AppBar(
+        leading: const Icon(
+          Icons.arrow_back,
+          color: Colors.black,
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
