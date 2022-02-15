@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextEditingController? controller;
   final List<TextInputFormatter>? mask;
+  final String? initialValue;
 
   final String? Function(String?)? validator;
 
@@ -21,7 +22,10 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.prefixIcon,
     this.suffixIcon,
-    this.labelText, this.controller, this.mask,
+    this.labelText,
+    this.controller,
+    this.mask,
+    this.initialValue,
   }) : super(key: key);
 
   @override
@@ -31,6 +35,7 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: TextFormField(
+        initialValue: initialValue,
         inputFormatters: mask,
         controller: controller,
         keyboardType: keyboardType,

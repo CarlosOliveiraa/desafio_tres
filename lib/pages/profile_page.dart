@@ -2,6 +2,7 @@ import 'package:desafio_tres/components/botton_background.dart';
 import 'package:desafio_tres/components/confirm_button.dart';
 import 'package:desafio_tres/components/custom_country_list.dart';
 import 'package:desafio_tres/components/custom_textfield.dart';
+import 'package:desafio_tres/controller/text_controller.dart';
 import 'package:desafio_tres/masks/cpf_mask.dart';
 import 'package:desafio_tres/masks/phone_mask.dart';
 import 'package:desafio_tres/masks/rg_mask.dart';
@@ -13,7 +14,12 @@ import '../constants/colors.dart';
 import 'home_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  final String? fullName;
+
+  const ProfilePage({
+    Key? key,
+    required this.fullName,
+  }) : super(key: key);
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -21,7 +27,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final _formKey = GlobalKey<FormState>();
-
+  final controller = TextController();
   AppColor colors = AppColor();
 
   @override
@@ -66,6 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           // NAME FIELD...
                           CustomTextField(
+                            initialValue: widget.fullName,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Fill you display name";
@@ -81,28 +88,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           const SizedBox(
                             height: 15,
                           ),
-                          // const Text(
-                          //   "Country",
-                          //   style: TextStyle(
-                          //       fontSize: 16, fontWeight: FontWeight.bold),
-                          // ),
-                          //COUNTRY FIELD...
-                          // CustomTextField(
-                          //   validator: (value) {
-                          //     if (value!.isEmpty) {
-                          //       return "Select you country";
-                          //     }
-                          //   },
-                          //   // prefixIcon: Icon(
-                          //   //   Icons.person_outline_rounded,
-                          //   //   color: colors.primaryColor,
-                          //   // ),
-                          //   keyboardType: TextInputType.text,
-                          //   suffixIcon: Icon(
-                          //     Icons.keyboard_arrow_down,
-                          //     color: colors.primaryColor,
-                          //   ),
-                          // ),
+                          
                           const Text(
                             "CPF",
                             style: TextStyle(

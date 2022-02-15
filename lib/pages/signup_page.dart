@@ -2,6 +2,7 @@ import 'package:desafio_tres/components/botton_background.dart';
 import 'package:desafio_tres/components/confirm_button.dart';
 import 'package:desafio_tres/components/custom_textfield.dart';
 import 'package:desafio_tres/components/top_widget.dart';
+import 'package:desafio_tres/controller/text_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
@@ -19,6 +20,7 @@ class _SignUpPageState extends State<SignUpPage> {
   AppColor colors = AppColor();
   bool _showPassword = false;
   bool _showPassword2 = false;
+  final controller = TextController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -59,6 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   const Text("Full name"),
                   //FULL NAME FIELD...
                   CustomTextField(
+                    controller: controller.nameController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Fill you name";
@@ -74,6 +77,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   //E-MAIL FIELD...
                   const Text("E-mail"),
                   CustomTextField(
+                    controller: controller.emailController,
                     validator: (value) {
                       if (value == null || !value.contains("@")) {
                         return "E-mail inválido";
@@ -89,8 +93,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   //PASSWORD FIELD...
                   const Text("Password"),
                   CustomTextField(
+                    controller: controller.passController,
                     validator: (pass1) {
-                      if (pass1!.length < 6) {
+                      if (pass1!.length < 6 ||
+                          (pass1 != controller.confirmPassController.text)) {
                         return "Invalid password";
                       }
                     },
@@ -116,8 +122,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   //PASSWORD FIELD CONFIRMATION...
                   const Text("Confirm password"),
                   CustomTextField(
+                    controller: controller.confirmPassController,
                     validator: (pass2) {
-                      if (pass2!.length < 6) {
+                      print(pass2);
+                      print(controller.passController.text);
+                      if (pass2!.length < 6 ||
+                          (pass2 != controller.passController.text)) {
                         return "Invalid password";
                       }
                     },
@@ -152,7 +162,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ProfilePage(),
+                            builder: (context) => ProfilePage(
+                              fullName: controller.fullName,
+                            ),
                           ),
                         );
                       }
