@@ -95,8 +95,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   CustomTextField(
                     controller: controller.passController,
                     validator: (pass1) {
-                      if (pass1!.length < 6 ||
-                          (pass1 != controller.confirmPassController.text)) {
+                      if (pass1!.length < 6) {
                         return "Invalid password";
                       }
                     },
@@ -124,11 +123,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   CustomTextField(
                     controller: controller.confirmPassController,
                     validator: (pass2) {
-                      print(pass2);
-                      print(controller.passController.text);
-                      if (pass2!.length < 6 ||
-                          (pass2 != controller.passController.text)) {
+                      if (pass2!.length < 6) {
                         return "Invalid password";
+                      } else if (pass2 != controller.passController.text) {
+                        return "Passwords do not match";
                       }
                     },
                     labelText: "Password",
@@ -147,7 +145,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         });
                       },
                     ),
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.number,
                     obscureText: _showPassword2 == false ? true : false,
                   ),
                   const SizedBox(

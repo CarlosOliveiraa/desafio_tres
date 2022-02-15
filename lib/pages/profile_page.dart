@@ -8,6 +8,7 @@ import 'package:desafio_tres/masks/phone_mask.dart';
 import 'package:desafio_tres/masks/rg_mask.dart';
 import 'package:flutter/material.dart';
 
+import '../components/country_field.dart';
 import '../components/profile_widget.dart';
 import '../components/top_widget.dart';
 import '../constants/colors.dart';
@@ -53,7 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             BottonBackGround(
               width: size.width,
-              height: size.height * 1.3,
+              height: size.height * 1.42,
               child: Column(
                 children: [
                   ProfileWidget(
@@ -67,8 +68,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           const Text(
                             "Display Name",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           // NAME FIELD...
                           CustomTextField(
@@ -84,15 +83,22 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             keyboardType: TextInputType.name,
                           ),
-                          const CustomContryList(),
+                          // const CustomContryList(),
+                          const Text("Country"),
                           const SizedBox(
                             height: 15,
                           ),
-                          
+                          const CustomContryList(),
+                          // CountryField(
+                          //   width: size.width * 0.95,
+                          //   height: size.height * 0.09,
+                          // ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+
                           const Text(
                             "CPF",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           //CPF FIELD...
                           CustomTextField(
@@ -110,8 +116,6 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const Text(
                             "RG",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           //RG FIELD...
                           CustomTextField(
@@ -129,8 +133,6 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const Text(
                             "Phone Number",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           //PHONE NUMBER FIELD...
                           CustomTextField(
