@@ -1,17 +1,16 @@
-import 'package:desafio_tres/components/botton_background.dart';
-import 'package:desafio_tres/components/confirm_button.dart';
-import 'package:desafio_tres/components/custom_country_list.dart';
-import 'package:desafio_tres/components/custom_textfield.dart';
-import 'package:desafio_tres/controller/text_controller.dart';
-import 'package:desafio_tres/masks/cpf_mask.dart';
-import 'package:desafio_tres/masks/phone_mask.dart';
-import 'package:desafio_tres/masks/rg_mask.dart';
 import 'package:flutter/material.dart';
 
-import '../components/country_field.dart';
+import '../components/botton_background.dart';
+import '../components/confirm_button.dart';
+import '../components/custom_country_list.dart';
+import '../components/custom_textfield.dart';
 import '../components/profile_widget.dart';
 import '../components/top_widget.dart';
 import '../constants/colors.dart';
+import '../controller/text_controller.dart';
+import '../masks/cpf_mask.dart';
+import '../masks/phone_mask.dart';
+import '../masks/rg_mask.dart';
 import 'home_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -84,7 +83,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             keyboardType: TextInputType.name,
                           ),
                           // const CustomContryList(),
-                          const Text("Country"),
+                          // const Text("Country"),
                           const SizedBox(
                             height: 15,
                           ),
@@ -129,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               Icons.credit_card,
                               color: colors.primaryColor,
                             ),
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.number,
                           ),
                           const Text(
                             "Phone Number",

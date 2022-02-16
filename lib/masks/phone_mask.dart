@@ -7,7 +7,7 @@ class PhoneMask extends TextInputFormatter {
       TextEditingValue oldValue, TextEditingValue newValue) {
     var phone = newValue.text;
 
-    if (phone.length > 14 || !RegExp(r'^([\d-()]+)?$').hasMatch(phone)) {
+    if (phone.length > 16 || !RegExp(r'^([\d- ()]+)?$').hasMatch(phone)) {
       return oldValue;
     }
     phone = phone.replaceAll(RegExp(r'\D'), '');
@@ -19,7 +19,10 @@ class PhoneMask extends TextInputFormatter {
         formatted += '(';
         formatted += characteres[i];
       } else if (i == 2) {
-        formatted += ')';
+        formatted += ') ';
+        formatted += characteres[i];
+      } else if (i == 3) {
+        formatted += ' ';
         formatted += characteres[i];
       } else if (i == 7) {
         formatted += '-';

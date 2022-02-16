@@ -33,7 +33,6 @@ class _CustomContryListState extends State<CustomContryList> {
           "Country",
           style: TextStyle(
             fontSize: 15,
-            fontWeight: FontWeight.w500,
             color: Colors.black,
           ),
         ),
@@ -44,7 +43,7 @@ class _CustomContryListState extends State<CustomContryList> {
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(
               side: BorderSide(color: colors.primaryColor),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(15),
             ),
           ),
           child: Padding(

@@ -47,7 +47,7 @@ class _SignUpPageState extends State<SignUpPage> {
             icone: "assets/images/mao.png",
             greeting: " Hello,",
             title: " Are you new here?",
-            subTitle: "  if you have an acount",
+            subTitle: "  if you have an acount/ Login",
           ),
           BottonBackGround(
             width: size.width,
@@ -115,7 +115,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         });
                       },
                     ),
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.number,
                     obscureText: _showPassword == false ? true : false,
                   ),
                   //PASSWORD FIELD CONFIRMATION...
