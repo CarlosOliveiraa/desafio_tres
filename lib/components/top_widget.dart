@@ -21,7 +21,7 @@ class TopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       width: width,
       height: height,
       child: Column(

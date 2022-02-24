@@ -11,11 +11,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.green,
       appBar: AppBar(),
-      body: Center(child: CustomCountry()),
+      body: const Center(child: CustomCountry()),
     );
   }
 }

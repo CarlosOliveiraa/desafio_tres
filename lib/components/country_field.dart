@@ -33,7 +33,7 @@ class _CountryFieldState extends State<CountryField> {
   Widget build(BuildContext context) {
     AppColor colors = AppColor();
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 7),
+      padding: const EdgeInsets.symmetric(horizontal: 7),
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
@@ -74,5 +74,5 @@ class _CountryFieldState extends State<CountryField> {
 }
 
 Widget openList() {
-  return CustomCountry();
+  return const CustomCountry();
 }

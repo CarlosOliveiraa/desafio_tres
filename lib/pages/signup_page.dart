@@ -3,11 +3,10 @@ import 'package:desafio_tres/components/confirm_button.dart';
 import 'package:desafio_tres/components/custom_textfield.dart';
 import 'package:desafio_tres/components/top_widget.dart';
 import 'package:desafio_tres/controller/text_controller.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
-
-import 'profile_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -27,6 +26,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final _auth = FirebaseAuth.instance;
 
     return Scaffold(
       backgroundColor: const Color(0xffFAFAFA),
@@ -66,6 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (value == null || value.isEmpty) {
                         return "Fill you name";
                       }
+                      return null;
                     },
                     keyboardType: TextInputType.name,
                     labelText: "Full name",
@@ -82,6 +83,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (value == null || !value.contains("@")) {
                         return "E-mail inválido";
                       }
+                      return null;
                     },
                     keyboardType: TextInputType.emailAddress,
                     labelText: "E-mail",
@@ -98,6 +100,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (pass1!.length < 6) {
                         return "Invalid password";
                       }
+                      return null;
                     },
                     labelText: "Password",
                     prefixIcon:
@@ -128,6 +131,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       } else if (pass2 != controller.passController.text) {
                         return "Passwords do not match";
                       }
+                      return null;
                     },
                     labelText: "Password",
                     prefixIcon:
@@ -155,16 +159,24 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: size.width * 0.95,
                     height: size.height * 0.08,
                     text: "Sign Up",
-                    onTap: () {
+                    onTap: () async {
                       if (_formKey.currentState!.validate()) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfilePage(
-                              fullName: controller.fullName,
-                            ),
-                          ),
-                        );
+                        await _auth
+                            .signInWithEmailAndPassword(
+                                email: controller.emailController.text,
+                                password: controller.passController.text)
+                            .then((auth) {
+                          // String? idUsuario = auth.user?.uid;
+                          // print("Usuario: $idUsuario");
+                        });
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => ProfilePage(
+                        //       fullName: controller.fullName,
+                        //     ),
+                        //   ),
+                        // );
                       }
                     },
                   )

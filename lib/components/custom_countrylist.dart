@@ -13,7 +13,7 @@ class CustomCountry extends StatelessWidget {
     final countryList = CountryController();
 
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       width: width,
       height: height,
       decoration: BoxDecoration(

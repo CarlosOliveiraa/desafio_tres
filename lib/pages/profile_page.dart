@@ -71,10 +71,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           // NAME FIELD...
                           CustomTextField(
                             initialValue: widget.fullName,
-                            validator: (value) {
+                            validator: (value ) {
                               if (value!.isEmpty) {
                                 return "Fill you display name";
                               }
+                              return null;
                             },
                             prefixIcon: Icon(
                               Icons.person_outline_rounded,
@@ -106,6 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               if (value!.isEmpty || value.length < 14) {
                                 return "Invalid CPF";
                               }
+                              return null;
                             },
                             prefixIcon: Icon(
                               Icons.credit_card,
@@ -123,6 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               if (value!.isEmpty || value.length < 10) {
                                 return "Invalid RG";
                               }
+                              return null;
                             },
                             prefixIcon: Icon(
                               Icons.credit_card,
@@ -140,6 +143,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               if (value!.isEmpty || value.length < 14) {
                                 return "Invalid number phone";
                               }
+                              return null;
                             },
                             prefixIcon: Icon(
                               Icons.phone_android,
@@ -159,8 +163,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => HomePage()));
+                                        builder: (context) => const HomePage()));
                               }
+                              
                             },
                           ),
                         ],
